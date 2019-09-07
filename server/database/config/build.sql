@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS users, city cascade;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  email VARCHAR,
+  email text UNIQUE,
   password text
 );
 

@@ -26,7 +26,7 @@ exports.signupFunc = (req, res) => {
           res.cookie('id', accessToken);
           res.redirect('/cities')
         })
-        .catch((err) => console.log(err));
+        .catch((err) => res.send(err.detail));
     }
   });
 

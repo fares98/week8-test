@@ -17,8 +17,7 @@ exports.loginFunction = (req, res) => {
   getUser(email)
     .then((result) => {
       if (result.rows.length === 0) {
-        console.log('The user Not found');
-        res.redirect('/')
+        res.send('The user Not found');
       } else {
         bcrypt.compare(password, result.rows[0].password, (err, decoded) => {
           if (decoded) {
@@ -26,8 +25,7 @@ exports.loginFunction = (req, res) => {
             res.cookie('id', accessToken);
             res.redirect('/cities')
           } else {
-            console.log('Wrong Password');
-            res.redirect('/login')
+            res.send('Wrong Password')
           }
         })
       }
