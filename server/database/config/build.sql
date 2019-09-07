@@ -1,6 +1,13 @@
 BEGIN;
 
-DROP TABLE IF EXISTS city cascade;
+DROP TABLE IF EXISTS users, city cascade;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR,
+  password text
+);
+
 
 CREATE TABLE city (
   id SERIAL PRIMARY KEY NOT NULL,
